@@ -9,7 +9,7 @@
             <div class="body">
             <h5><%= task.name %></h5>
             <p><%= task.description %><p>
-            <%= link_to "Completar tarea", "#", class: 'btn btn-success' %>
+            <%= link_to "Completar tarea", task_todos_path(task), class: 'btn btn-success', method: :post %>
             </div>
           </div>
         </div>
