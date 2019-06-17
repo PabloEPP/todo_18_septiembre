@@ -1,31 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Tasks</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Photo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.name %></td>
-        <td><%= task.description %></td>
-        <td><%= task.photo %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Task', new_task_path %>
+<h1>Tareas Dieciocheras</h1>
+<div class= "container">
+  <div class="row">
+    <% @tasks.each_slice(3) do |row| %>
+      <% row.each do |task| %>
+        <div class="col" >
+          <div class = "card">
+            <%= image_tag task.photo, class: 'card-img-top'%>
+            <div class="body">
+            <h5><%= task.name %></h5>
+            <p><%= task.description %><p>
+            <%= link_to "Completar tarea", "#", class: 'btn btn-success' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <div class= "w-100"></div>
+  <% end %>
+</div>
+</div>
